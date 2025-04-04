@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
 import ShapePreview from './ShapePreview.tsx';
 import { generateBlob, uploadDisabled } from '../../../utils';
-import type { BlobProps } from '../../../types.ts';
+import type { BlobProps } from '../../../types/types.ts';
 
 interface Props {
     setLastMutationTime?: Dispatch<SetStateAction<number>>;

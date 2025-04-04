@@ -1,0 +1,77 @@
+---
+import fs from 'fs'; // Import Node.js filesystem module
+import path from 'path'; // Import path module
+import matter from 'gray-matter'; // Import gray-matter to parse frontmatter
+
+const postsDirectory = path.resolve('./src/pages/blog/personal-stories'); // Path to your posts
+const postFiles = fs.readdirSync(postsDirectory); // Read the directory
+
+// Define the structure of a Post, marking optional properties as such
+interface Post {
+  title: string;
+  date: string;
+  tags?: string[]; // Make tags optional
+  categories?: string[]; // Make categories optional
+  excerpt?: string; // Make excerpt optional
+  url: string;
+}
+
+// Extract post details from Markdown files
+const posts: Post[] = postFiles.map((filename) => {
+  const filePath = path.join(postsDirectory, filename);
+  const fileContent = fs.readFileSync(filePath, 'utf8'); // Read file content
+  const { data } = matter(fileContent); // Parse frontmatter
+  return {
+    title: data.title,
+    date: data.date,
+    tags: data.tags || [], // Default to empty array if undefined
+    categories: data.categories || [], // Default to empty array if undefined
+    excerpt: data.excerpt || '', // Default to empty string if undefined
+    url: `/blog/personal-stories/${filename.replace('.md', '')}`, // Construct URL
+  };
+});
+
+// Sort posts by date
+const sortedPosts = posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+---
+
+<html>
+  <head>
+    <title>Blog - Insurance Help</title>
+    <meta name="description" content="Explore real-life experiences and insights regarding insurance. Personal stories, tips, and advice." />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/about">About Me</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="blog-header">
+        <h1>Personal Stories</h1>
+        <p>Discover the real-life experiences that shaped our understanding of insurance.</p>
+      </section>
+
+      <ul class="post-list">
+        {sortedPosts.map((post: Post) => (
+          <li class="post-item">
+            <a href={post.url}>
+              <h2 class="post-item-title">{post.title}</h2>
+            </a>
+            <p class="post-snippet">{post.excerpt}</p>
+          </li>
+        ))}
+      </ul>
+
+      <section class="donation-note">
+        <p>Support us to continue delivering these personal insights for better understanding.</p>
+        <a href="https://paypal.me/AndrewOrtiz453" class="donation-button">Donate</a>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,21 +1,171 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import ContextAlert from '../components/ContextAlert.astro';
-import Markdown from '../components/Markdown.astro';
-
-const explainer = `
-An Astro website can go way beyond static pages - on the right platform.
-
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
-`;
 ---
+<html>
+  <head>
+    <title>Insurance Help</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+      /* Your existing CSS styles */
+      body {
+        font-family: Arial, sans-serif; /* Ensure your font is set locally */
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+      }
 
-<Layout title="Welcome to Astro.">
-    <ContextAlert class="mb-8" />
-    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg sm:min-w-64">Read the Docs</a>
-    </p>
-</Layout>
+      header {
+        background: linear-gradient(to right, #607D8B, #8FBC8F, #B0C4DE);
+        color: white;
+        padding: 10px;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      nav ul {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+      }
+
+      nav ul li {
+        margin-right: 20px;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 10px;
+      }
+
+      .social-links a {
+        color: white;
+        font-size: 20px; /* Adjust icon size as needed */
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .hero {
+        text-align: center;
+        padding: 50px 0;
+      }
+
+      .hero h1 {
+        font-size: 2.5em;
+        color: #333;
+      }
+
+      .hero h2 {
+        color: #555;
+      }
+
+      .content {
+        background-color: white;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .donation-note {
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      .donation-button {
+        background-color: #0059b3;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        display: inline-block;
+        margin-top: 10px;
+        text-decoration: none;
+      }
+
+      .blog-snippet {
+        background-color: #f1f1f1;
+        padding: 20px;
+        margin-top: 30px;
+      }
+
+      .email-signup {
+        background-color: #e0e0e0;
+        padding: 20px;
+        margin-top: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <div>
+            <h1>Insurance Help</h1>
+            <h2>Empowering You with Insurance Knowledge</h2>
+          </div>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/about">About Me</a></li>
+          </ul>
+          <div class="social-links">
+            <a href="https://www.pinterest.com/ao4382/" aria-label="Pinterest">
+              <i class="fab fa-pinterest"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/andrew-ortiz-0a9b28354/" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <h1>Welcome to Insurance Help</h1>
+        <h2>Unbiased Insurance Information from Experience</h2>
+      </section>
+
+      <section class="content">
+        <h3>Our Mission</h3>
+        <p>
+          At Insurance Help, I understand that navigating the world of insurance can be overwhelming...
+          <!-- Continue your content here -->
+        </p>
+        <!-- Add your main content here -->
+      </section>
+
+      <section class="email-signup">
+        <h3>Join Our Community</h3>
+        <p>Sign up with your email to receive the latest updates:</p>
+        <form>
+          <input type="email" placeholder="Your email address" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </section>
+
+      <section class="blog-snippet">
+        <h3>Latest Blog Post</h3>
+        <p>Snippet of the recent blog post...</p>
+        <a href="/blog/latest">Read More</a>
+      </section>
+
+      <section class="donation-note">
+        <p>Your donations help keep this website ad-free and support ongoing content creation.</p>
+        <a href="https://paypal.me/AndrewOrtiz453" class="donation-button">Donate</a>
+      </section>
+    </main>
+  </body>
+</html>

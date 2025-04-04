@@ -1,5 +1,5 @@
 import { randomInt } from '../../../utils.ts';
-import type { BlobProps } from '../../../types.ts';
+import type { BlobProps } from '../../../types/types.ts';
 
 export default function ShapePreview(props: BlobProps) {
     const { svgPath, parameters } = props;
