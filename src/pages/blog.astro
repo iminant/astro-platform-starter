@@ -1,0 +1,152 @@
+---
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+
+// Define directory and read posts
+const postsDirectory = path.resolve('./src/pages/blog/personal-stories');
+const postFiles = fs.readdirSync(postsDirectory);
+
+// Define Post interface
+interface Post {
+  title: string;
+  date: string;
+  tags?: string[];
+  categories?: string[];
+  excerpt?: string;
+  url: string;
+}
+
+// Extract post details from Markdown files
+const posts: Post[] = postFiles.map((filename) => {
+  const filePath = path.join(postsDirectory, filename);
+  const fileContent = fs.readFileSync(filePath, 'utf8');
+  const { data } = matter(fileContent);
+  return {
+    title: data.title,
+    date: data.date,
+    tags: data.tags || [],
+    categories: data.categories || [],
+    excerpt: data.excerpt || '',
+    url: `/blog/personal-stories/${filename.replace('.md', '')}`,
+  };
+});
+
+// Sort posts by date
+const sortedPosts: Post[] = posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Insurance Help</title>
+  <meta name="description" content="Explore real-life experiences and insights regarding insurance. Personal stories, tips, and advice." />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: linear-gradient(to right, #607D8B, #8FBC8F, #B0C4DE);
+      color: white;
+      padding: 10px;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+    }
+    nav ul li {
+      margin-right: 20px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+    .content-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .post-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    .post-item {
+      margin-bottom: 30px;
+      border-bottom: 1px solid #ccc;
+    }
+    .post-title {
+      font-size: 1.5em;
+      margin: 0;
+      color: #0056b3;
+    }
+    .post-snippet {
+      margin: 10px 0;
+    }
+    .donation-note {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .donation-button {
+      background-color: #0059b3;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/about">About Me</a></li>
+    </ul>
+    <div class="social-links">
+      <a href="https://www.pinterest.com/ao4382/" aria-label="Pinterest">
+        <i class="fab fa-pinterest"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/andrew-ortiz-0a9b28354/" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+  </nav>
+</header>
+
+<main class="content-container">
+  <section>
+    <h1>Welcome to Our Blog</h1>
+    <p>Explore our latest posts and insights.</p>
+  </section>
+
+  <ul class="post-list">
+    {sortedPosts.map((post: Post) => (
+      <li class="post-item">
+        <a href={post.url}>
+          <h2 class="post-title">{post.title}</h2>
+        </a>
+        <p class="post-snippet">{post.excerpt}</p>
+      </li>
+    ))}
+  </ul>
+
+  <div class="donation-note">
+    <p>Your support helps sustain our content.</p>
+    <a href="https://paypal.me/AndrewOrtiz453" class="donation-button">Donate</a>
+  </div>
+</main>
+
+</body>
+</html>

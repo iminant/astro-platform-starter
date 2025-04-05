@@ -1,37 +1,117 @@
----
----
-<html>
-  <head>
-    <title>About Me - Insurance Help</title>
-    <meta name="description" content="Learn about Andrew Ortiz, the creator of Insurance Help, and his journey with insurance." />
-  </head>
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/about">About Me</a></li>
-        </ul>
-      </nav>
-    </header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me - Insurance Help</title>
+  <meta name="description" content="Learn more about Andrew, the creator of Insurance Help, his motivation, and his professional journey." />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: linear-gradient(to right, #607D8B, #8FBC8F, #B0C4DE);
+      color: white;
+      padding: 10px;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+    }
+    nav ul li {
+      margin-right: 20px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+    .content-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .section-title {
+      font-size: 2em;
+      margin-top: 0;
+      color: #333;
+    }
+    .profile-pic {
+      float: left;
+      margin-right: 20px;
+      border-radius: 50%;
+    }
+    .introduction, .background, .mission, .personal {
+      margin: 20px 0;
+    }
+    .donation-note {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .donation-button {
+      background-color: #0059b3;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
 
-    <main class="container">
-      <section class="about-header">
-        <h1>About Me</h1>
-        <p>Hello! I'm Andrew, an unemployment insurance auditor with a passion for sharing insights on the complexities of insurance.</p>
-      </section>
+<header>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/about">About Me</a></li>
+    </ul>
+    <div class="social-links">
+      <a href="https://www.pinterest.com/ao4382/" aria-label="Pinterest">
+        <i class="fab fa-pinterest"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/andrew-ortiz-0a9b28354/" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+  </nav>
+</header>
 
-      <section class="about-content">
-        <h2>My Journey</h2>
-        <p>I've navigated various insurance types, including health, pet, auto, and renters insurance, all of which led to valuable lessons worth sharing...</p>
-        <!-- More about your journey, experiences, and what readers can expect from your blog -->
-      </section>
-      
-      <section class="donation-note">
-        <p>Support my mission to provide clear, unbiased insurance information!</p>
-        <a href="https://paypal.me/AndrewOrtiz453" class="donation-button">Donate</a>
-      </section>
-    </main>
-  </body>
+<main class="content-container">
+  <section class="introduction">
+    <h1 class="section-title">About Andrew Ortiz</h1>
+    <!-- Optional profile picture -->
+    <!-- <img src="/path/to/your/photo.jpg" alt="Andrew Ortiz" class="profile-pic" width="150" height="150"> -->
+    <p>Hello! I'm Andrew, an unemployment insurance auditor and former bus operator with over 11 years of professional experience. In my current role, I dedicate myself to helping those who are out of work through no fault of their own, providing clarity and assistance during difficult times.</p>
+  </section>
+
+  <section class="background">
+    <h2 class="section-title">My Professional Journey</h2>
+    <p>After experiencing the complex world of insurance firsthand due to a car accident, I realized that "full coverage" wasn't what I initially thought it was. This experience opened my eyes to the jargon-heavy language often used by insurance providers. My career in insurance auditing has solidified my commitment to clarity and transparency in all things insurance-related.</p>
+  </section>
+
+  <section class="mission">
+    <h2 class="section-title">My Mission</h2>
+    <p>I started this blog because I believe that everyone deserves to understand their insurance policies without the confusing lingo. Insurance shouldn't be puzzling, and my goal is to break down the complexities into understandable insights. I strive to make this a place where honesty and transparency are at the forefront.</p>
+  </section>
+
+  <section class="personal">
+    <h2 class="section-title">A Little More About Me</h2>
+    <p>Outside of my professional life, I'm deeply passionate about photography and enjoy spending quality time with my family. These personal experiences enrich my perspective and translate into the stories and advice I share on this blog.</p>
+  </section>
+
+  <div class="donation-note">
+    <p>Your support helps sustain our content and mission.</p>
+    <a href="https://paypal.me/AndrewOrtiz453" class="donation-button">Donate</a>
+  </div>
+</main>
+
+</body>
 </html>
