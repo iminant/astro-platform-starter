@@ -1,0 +1,56 @@
+---
+import { getSortedPostsData } from '@lib/posts';
+
+interface Post {
+  title: string;
+  slug: string;
+  excerpt: string;
+  date: string;
+}
+
+let posts: Post[] = getSortedPostsData();
+---
+
+<html lang="en">
+  <head>
+    <title>Blog</title>
+  </head>
+  <body>
+    <div class="blog-list">
+      <h1>Blog Posts</h1>
+      {posts.length > 0 ? (
+        <ul>
+          {posts.map((post) => (
+            <li> <!-- Removed 'key' attribute -->
+              <h2><a href={`/blog/${post.slug}`}>{post.title}</a></h2>
+              <p>{post.excerpt}</p>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>No posts available.</p>
+      )}
+    </div>
+  </body>
+  <style>
+    .blog-list {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 40px;
+    }
+    a {
+      color: #0070f3;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</html>
